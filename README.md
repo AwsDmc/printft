@@ -26,7 +26,7 @@ The project uses a Makefile to compile the library `libftprintf.a`.
 To use this in your code:
 1.  Include the header: `#include "ft_printf.h"`
 2.  Compile your file with the library:
-    `cc main.c libftprintf.a`
+    `cc -Wall -Werror -Wextra main.c libftprintf.a`
 3.  Run your program:
     `./a.out`
 
