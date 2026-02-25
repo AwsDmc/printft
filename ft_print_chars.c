@@ -14,23 +14,25 @@
 
 int	ft_print_char(int c)
 {
-	ft_putchar_fd(c, 1);
-	return (1);
+	return (write(1, &c, 1));
 }
 
 int	ft_print_str(char *str)
 {
+	int	i;
+
+	i = 0;
 	if (!str)
+		return (write(1, "(null)", 6));
+	while (str[i])
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
+		write(1, &str[i], 1);
+		i++;
 	}
-	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
+	return (i);
 }
 
 int	ft_print_percent(void)
 {
-	ft_putchar_fd('%', 1);
-	return (1);
+	return (write(1, "%", 1));
 }
