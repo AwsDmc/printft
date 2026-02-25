@@ -18,10 +18,7 @@ int	ft_print_nbr(int n)
 
 	len = 0;
 	if (n == -2147483648)
-	{
-		ft_putstr_fd("-2147483648", 1);
-		return (11);
-	}
+		return (write(1, "-2147483648", 11));
 	if (n < 0)
 	{
 		len += ft_print_char('-');
