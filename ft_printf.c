@@ -6,7 +6,7 @@
 /*   By: abaoni <awos.baoni@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 15:36:41 by abaoni            #+#    #+#             */
-/*   Updated: 2026/02/19 14:06:39 by abaoni           ###   ########.fr       */
+/*   Updated: 2026/02/26 13:08:56 by abaoni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ static int	ft_format_evaluator(va_list *args, const char format)
 		print_length += ft_print_hex(va_arg(*args, unsigned int), format);
 	else if (format == '%')
 		print_length += ft_print_percent();
+	else
+	{
+		print_length += ft_print_percent();
+		print_length += ft_print_char(format);
+	}
 	return (print_length);
 }
 
@@ -50,7 +55,10 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			if (format[i + 1] == '\0')
+			{
+				print_length += ft_print_percent();
 				break ;
+			}
 			print_length += ft_format_evaluator(&args, format[i + 1]);
 			i++;
 		}
